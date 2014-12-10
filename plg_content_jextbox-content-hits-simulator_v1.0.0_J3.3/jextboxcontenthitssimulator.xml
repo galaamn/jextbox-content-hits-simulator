@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="content" method="upgrade">
+<name>Content - JExtBOX Content Hits Simulator</name>
+<author>Galaa</author>
+<creationDate>2013-11-17</creationDate>
+<copyright>Copyright (C) 2012 Galaa</copyright>
+<license>http://www.gnu.org/licenses/gpl.html</license>
+<authorEmail>contact@galaa.mn</authorEmail>
+<authorUrl>www.galaa.mn</authorUrl>
+<version>1.0.0</version>
+<description><![CDATA[
+	<p>This magic plugin enables for you to increase hit count of articles. Anybody can't know or detect this. Because this process based on statistical simulation.</p>
+	<p>Author <a href="http://galaa.mn" target="_blank">Galaa</a> Publisher <a href="http://jextbox.com" target="_blank">JExtBOX - BOX of Joomla Extensions</a>.</p>
+	]]>
+</description>
+<files>
+	<filename plugin="jextboxcontenthitssimulator">jextboxcontenthitssimulator.php</filename>
+	<filename>install.mysql.utf8.sql</filename>
+	<filename>uninstall.mysql.utf8.sql</filename>
+	<filename>index.html</filename>
+</files>
+<install>
+	<sql>
+		<file driver="mysql" charset="utf8">install.mysql.utf8.sql</file>
+	</sql>
+</install>
+<uninstall>
+	<sql>
+		<file driver="mysql" charset="utf8">uninstall.mysql.utf8.sql</file>
+	</sql>
+</uninstall>
+<config>
+<fields name="params">
+<fieldset name="basic">
+	<field name="average_weekly_hits" type="text" default="50000" label="Weekly Hits" description="Number of simulated average weekly hits i.e. number of additional hits. Please visit your visitor statistics before set this parameter. Don't set too high." />
+	<field name="max_number_of_hits_in_one_execution" type="text" default="1000" label="Max. Hits in Execution" description="Maximum number of hits in one execution. Default value: 1000" />
+	<field name="hits_by_day_as_percent" type="text" default="15.93,18.36,17.40,16.55,11.83,8.49,11.44" label="Hits by Day as percent" description="Monday through Sunday. Sum of percentages must equal 100%. Example: 15.93,18.36,17.40,16.55,11.83,8.49,11.44" />
+	<field name="hits_by_hour_as_percent" type="text" default="5.36,4.58,4.61,5.48,5.29,5.76,5.01,5.29,5.25,5.77,5.00,4.59,3.87,4.09,3.45,2.97,3.28,3.10,2.79,2.61,2.58,3.30,3.34,2.50" label="Hits by Hour as percent" description="0 through 23. Sum of percentages must equal 100%. Example: 5.36,4.58,4.61,5.48,5.29,5.76,5.01,5.29,5.25,5.77,5.00,4.59,3.87,4.09,3.45,2.97,3.28,3.10,2.79,2.61,2.58,3.30,3.34,2.50" />
+	<field name="order_of_articles" type="list" default="rdate" label="Article Order" description="">
+		<option value="rdate">Most recent first</option>
+	</field>
+	<field name="depth_of_reading" type="text" default="5" label="Depth of Reading" description="Number of articles, opened by one visitor. Default value: 5" />
+</fieldset>
+</fields>
+</config>
+</extension>
